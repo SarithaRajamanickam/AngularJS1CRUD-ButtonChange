@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="mainApp" data-ng-controller="CRUDController">
+        <table>
+            <tr>
+                <td>EmpId: </td>
+                <td>
+                    <h3>{{ EmpModel.Id }}</h3>
+                </td>
+                <td>
+                    <!-- <td>EmpName: </td>  
+                    <td>
+                        <span>{{ EmpModel.Name | uppercase }}</span></td>  -->
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input type="text" data-ng-model="EmpModel.Name" /></td>
+            </tr>
+            <tr>
+                <td>Salary:</td>
+                <td>
+                    <input type="number" data-ng-model="EmpModel.Salary" /></td>
+            </tr>
+
+            <!--<td>
+                    <input type="button" value="Save Data" data-ng-click="AddData()" /></td>
+                <td>
+                    <input type="button" value="Update Data" data-ng-click="UpdateData()" /></td>-->
+            <tr>
+                <td><input type="submit" value="{{ EmpModel.Id>0? 'update' : 'save' }}" ng-click="modifyAlbumCollection()"></td>
+            </tr>
+
+
+
+        </table>
+
+        <table>
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Salary</th>
+            </thead>
+            <tr data-ng-repeat="Emp in EmpList" data-ng-click="BindSelectedData(Emp)">
+                <td>{{ Emp.Id }}</td>
+                <td>{{ Emp.Name }}</td>
+                <td>{{ Emp.Salary }}</td>
+                <td>
+                    <input type="button" value="Delete" data-ng-click="DeleteData(Emp)" /></td>
+                <td> <input type="button" value="Edit" data-ng-click="BindSelectedData(Emp)" /></td>
+            </tr>
+        </table>
+    </div>
+    <script src="app.js">
+
+    </script>
+</body>
+
+</html>
